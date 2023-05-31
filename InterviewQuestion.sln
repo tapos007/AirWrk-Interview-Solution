@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterviewQuestion.API", "InterviewQuestion.API\InterviewQuestion.API.csproj", "{5F28FEFF-2AC6-4F13-99C6-28D22862DD4E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterviewQuestion.BLL", "InterviewQuestion.BLL\InterviewQuestion.BLL.csproj", "{192CC334-87C4-46B4-96FE-C2563D328F39}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{5F28FEFF-2AC6-4F13-99C6-28D22862DD4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F28FEFF-2AC6-4F13-99C6-28D22862DD4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F28FEFF-2AC6-4F13-99C6-28D22862DD4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{192CC334-87C4-46B4-96FE-C2563D328F39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{192CC334-87C4-46B4-96FE-C2563D328F39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{192CC334-87C4-46B4-96FE-C2563D328F39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{192CC334-87C4-46B4-96FE-C2563D328F39}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
