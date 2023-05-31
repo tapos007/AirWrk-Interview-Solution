@@ -26,6 +26,38 @@ public class StringProcessingService : IStringProcessingService
 
         return returnObj;
     }
+    
+    public async Task<SimilarityResponseViewModel> SimilarityReport(SimilaritiesRequestViewModel requestViewModel)
+    {
+        var firstTxtUniqueWords = FindUniqueWords(requestViewModel.Text1);
+        var secondTxtUniqueWords = FindUniqueWords(requestViewModel.Text2);
+        int numberOfWorldsMatch = 0;
+        foreach (var word1 in firstTxtUniqueWords)
+        {
+            if (secondTxtUniqueWords.Contains(word1))
+            {
+                numberOfWorldsMatch += 1;
+            }
+        }
+
+        decimal firstPercentage = (numberOfWorldsMatch * 100) / firstTxtUniqueWords.Count();
+        decimal secondPercentage = (numberOfWorldsMatch *100) / secondTxtUniqueWords.Count();
+
+        decimal similarityPercentage =(firstPercentage+ secondPercentage)/2;
+        return new SimilarityResponseViewModel()
+        {
+            Similarity = similarityPercentage
+        };
+    }
+
+    public List<string> FindUniqueWords(string text)
+    {
+        
+        Regex rgx = new Regex("[^a-zA-Z -]");
+        var  str = rgx.Replace(text, "");
+        IEnumerable<string> allWords = str.Split(' ');
+        return  allWords.GroupBy(w => w).Where(g => g.Count() == 1).Select(g => g.Key).ToList();
+    }
 
     private  MostFrequentWord GetMostFrequestWord(string text)
     {
@@ -92,8 +124,5 @@ public class StringProcessingService : IStringProcessingService
         return str.Length;
     }
 
-    public Task<SimilarityResponseViewModel> SimilarityReport(SimilaritiesRequestViewModel requestViewModel)
-    {
-        throw new NotImplementedException();
-    }
+    
 }
